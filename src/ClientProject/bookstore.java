@@ -27,10 +27,11 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.template.Bootstrap;
 
 
 
-@WebServlet("/book")
+@WebServlet("/findbook")
 public class bookstore extends HttpServlet {
 	private static final long serialVersionUID = 1L;  
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,37 +69,35 @@ public class bookstore extends HttpServlet {
 	        e.printStackTrace();  
 	    } 
 	    
-	    System.out.println(doc);
+	    Bootstrap b = new Bootstrap();
+	    
 	    System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-		NodeList nList  = doc.getElementsByTagName("books");
+		NodeList nList  = doc.getElementsByTagName("book");
 		
 		// out put web
 		response.setContentType( "text/html; charset=UTF-8" );
-		out.print("<html>");
-		out.println("<head><base href=\"http://localhost:8080/SWE-343-RestFULL-Client/\"></head>");
-		out.print("<body>");
+		out.print(b.header());
+
 		
-		out.println("<center>");
 		
-		out.println("<img src=\"picture/2000px-Switch-course-book.svg.png\" width=\"100px\"></img>");
-		
-		out.println("<form action=\"book\">");
+		out.println("<form action=\"findbook\">");
 		out.println("<input type=\"text\" name=\"name\" value=\""+name+"\">");
-		out.println("<input type=\"submit\" value=\"เธ�เน�เธ�เธซเธฒ\">");
+		out.println("<input type=\"submit\" class=\"btn btn-primary\" value=\"ค้นหา\">");
+		out.println("<a href=\"create\" class=\"btn btn-success\">สร้าง</a>");
 		out.println("</form>");
 		
-		out.println("<a href=\"create\">เธชเธฃเน�เธฒเธ�</a>");
 		
-		out.println("<table border=\"0\">");
+		
+		out.println("<table class=\"table\">");
 		out.println("<tr>");
-		out.println("<th>id_book</th>");
-		out.println("<th>name</th>");
-		out.println("<th>publisher</th>");
-		out.println("<th>book_number</th>");
-		out.println("<th>discovery</th>");
-		out.println("<th>total_book</th>");
+			out.println("<th>id_book</th>");
+			out.println("<th>name</th>");
+			out.println("<th>publisher</th>");
+			out.println("<th>book_number</th>");
+			out.println("<th>discovery</th>");
+			out.println("<th>total_book</th>");
 		out.println("</tr>");
-		
+		System.out.print(nList.getLength());
 		for (int temp = 0; temp < nList.getLength(); temp++) {
 			Node nNode = nList.item(temp);
 			System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -106,15 +105,17 @@ public class bookstore extends HttpServlet {
 				Element eElement = (Element) nNode;
 				
 				out.println("<tr>");
+				out.println("<td>"+eElement.getElementsByTagName("id").item(0).getTextContent()+"</td>");
 				out.println("<td>"+eElement.getElementsByTagName("name").item(0).getTextContent()+"</td>");
-//				String id = eElement.getElementsByTagName("id").item(0).getTextContent();
-//				out.println("<td><a href=\"update?id="+id+"\">เน�เธ�เน�เน�เธ�</a></td>");
-//				out.println("<td><a href=\"delete?id="+id+"\">เธฅเธ�</a></td>");
+				out.println("<td>"+eElement.getElementsByTagName("type").item(0).getTextContent()+"</td>");
+				String id = eElement.getElementsByTagName("id").item(0).getTextContent();
+				out.println("<td><a href=\"update?id="+id+"\">แก้ไข</a></td>");
+				out.println("<td><a href=\"delete?id="+id+"\">ลบ</a></td>");
 				out.println("</tr>");
 			}
 		}
 		out.println("</table");
-		out.println("</center>");
+		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
 	}
