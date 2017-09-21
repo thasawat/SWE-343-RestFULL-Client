@@ -51,6 +51,7 @@ package ClientProject;
 			WebResource service = client.resource(getBaseURI()); 
 			
 			// request xml
+			
 			WebResource path = service.path("customer").path("name");
 			if(name != null) {
 				path = path.path(name);
