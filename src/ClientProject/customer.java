@@ -22,6 +22,7 @@ package ClientProject;
 	import org.w3c.dom.Node;
 	import org.w3c.dom.NodeList;
 	import org.xml.sax.InputSource;
+	
 
 	import com.sun.jersey.api.client.Client;
 	import com.sun.jersey.api.client.ClientResponse;
