@@ -118,7 +118,7 @@ public class bookstore extends HttpServlet {
 					out.println("<td>"+eElement.getElementsByTagName("charge").item(0).getTextContent()+"</td>");
 					out.println("<td>"+eElement.getElementsByTagName("total").item(0).getTextContent()+"</td>");
 					String id = eElement.getElementsByTagName("id").item(0).getTextContent();
-					out.println("<td><a href=\"update?id="+id+"\">แก้ไข</a></td>");
+					out.println("<td><a href=\"updatebook?id="+id+"\">แก้ไข</a></td>");
 					out.println("<td><a href=\"delete?id="+id+"\">ลบ</a></td>");
 				out.println("</tr>");
 			}

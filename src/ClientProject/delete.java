@@ -19,6 +19,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.template.Bootstrap;
 
 /**
  * Servlet implementation class Create
@@ -40,23 +41,22 @@ public class delete extends HttpServlet {
 		Client client = Client.create(config); 
 		WebResource service = client.resource(getBaseURI()); 
 				
-		ClientResponse clientResponse = service.path("rest").path("book").path("delete").path(id) .accept(MediaType.TEXT_PLAIN).get(ClientResponse.class);
+		ClientResponse clientResponse = service.path("rest").path("bookstore").path("delete").path(id) .accept(MediaType.TEXT_PLAIN).get(ClientResponse.class);
 		
 		String result = "";
 		if (clientResponse.getStatus() != 200) {
-			result = "บันทึกไม่สำเร็จ";
+			result = "ลบไม่สำเร็จ";
 		}else {
-			result = "บันทึกสำเร็จ";
+			result = "ลบสำเร็จ";
 		}
 		
-		// out put web
-		out.print("<html>");
-		out.println("<head><base href=\"http://localhost:8080/SWE-343-RestFULL-Client/\"></head>");
-		out.print("<body>");
-		out.println("<center>");
+	  	Bootstrap b = new Bootstrap();
+				// out put web
+		    	 	response.setContentType( "text/html; charset=UTF-8" );
+		    	 	out.print(b.header());;
 		out.println("<h2>ผลลัพทธ์</h2>");
 		out.println(result+"<br><br>");
-		out.println("<a href=\"bookstore\">กลับสู่หน้าหลัก</a>");
+		out.println("<a href=\"findbook\">กลับสู่หน้าหลัก</a>");
 		out.println("</center>");
 		
 		out.println("</body>");
@@ -73,7 +73,7 @@ public class delete extends HttpServlet {
 	}
 	
 	private static URI getBaseURI() { 
-		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL/").build(); 
+		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL-2/").build(); 
 	}
 }
 
