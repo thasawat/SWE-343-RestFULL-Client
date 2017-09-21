@@ -39,6 +39,7 @@ package ClientProject;
 		protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub
 			
+			
 	    	PrintWriter out = new PrintWriter( new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
 	    	
 	    	// value from web
