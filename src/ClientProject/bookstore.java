@@ -77,13 +77,14 @@ public class bookstore extends HttpServlet {
 		// out put web
 		response.setContentType( "text/html; charset=UTF-8" );
 		out.print(b.header());
+		
 
 		
 		
 		out.println("<form action=\"findbook\">");
 		out.println("<input type=\"text\" name=\"name\" value=\""+name+"\">");
 		out.println("<input type=\"submit\" class=\"btn btn-primary\" value=\"ค้นหา\">");
-		out.println("<a href=\"create\" class=\"btn btn-success\">สร้าง</a>");
+		out.println("<a href=\"createbook\" class=\"btn btn-success\">สร้าง</a>");
 		out.println("</form>");
 		
 		

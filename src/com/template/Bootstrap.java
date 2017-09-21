@@ -23,6 +23,7 @@ public class Bootstrap {
 	{
 		String s;
 		s = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n" + 
+		""+
 				"  <a class=\"navbar-brand\" href=\"#\">ArMa</a>\n" + 
 				"  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n" + 
 				"    <span class=\"navbar-toggler-icon\"></span>\n" + 
@@ -30,11 +31,11 @@ public class Bootstrap {
 				"\n" + 
 				"  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n" + 
 				"    <ul class=\"navbar-nav mr-auto\">\n" + 
-				"      <li class=\"nav-item active\">\n" + 
-				"        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n" + 
+				"      <li class=\"nav-item\">\n" + 
+				"        <a class=\"nav-link\" href=\"/SWE-343-RestFULL-Client/findbook\">Book</a>\n" + 
 				"      </li>\n" + 
 				"      <li class=\"nav-item\">\n" + 
-				"        <a class=\"nav-link\" href=\"#\">Link</a>\n" + 
+				"        <a class=\"nav-link\" href=\"\">Link</a>\n" + 
 				"      </li>\n" + 
 				"      <li class=\"nav-item\">\n" + 
 				"        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>\n" + 
