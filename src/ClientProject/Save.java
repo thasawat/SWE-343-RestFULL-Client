@@ -40,10 +40,11 @@ public class Save extends HttpServlet {
     	// value from web
     	String id = request.getParameter("id");
     	String name = request.getParameter("name");
+    	String type = request.getParameter("type");
     	String version = request.getParameter("version");
     	String price = request.getParameter("price");
     	String charge = request.getParameter("charge");
-    	String day = request.getParameter("day");
+    	String days = request.getParameter("days");
     	String total = request.getParameter("total");
     	
     	
@@ -52,9 +53,10 @@ public class Save extends HttpServlet {
     	MultivaluedMap queryParams = new MultivaluedMapImpl();
     		queryParams.add("name", name);
 		queryParams.add("version", version);
+		queryParams.add("type", type);
 		queryParams.add("price", price);
 		queryParams.add("charge", charge);
-		queryParams.add("day", day);
+		queryParams.add("days", days);
 		queryParams.add("total", total);
 		
 	 	
@@ -93,7 +95,7 @@ public class Save extends HttpServlet {
 		out.println("<center>");
 		out.println("<h2>ผลลัพทธ์</h2>");
 		out.println(result+"<br><br>");
-		out.println("<a href=\"lecturer\">กลับสู่หน้าหลัก</a>");
+		out.println("<a href=\"findbook\">กลับสู่หน้าหลัก</a>");
 		out.println("</center>");
 		
 		out.println("</body>");
@@ -110,6 +112,6 @@ public class Save extends HttpServlet {
 	}
 	
 	private static URI getBaseURI() { 
-		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL/").build(); 
+		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL-2/").build(); 
 	}
 }

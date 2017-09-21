@@ -71,7 +71,7 @@ public class bookstore extends HttpServlet {
 	    
 	    Bootstrap b = new Bootstrap();
 	    
-	    System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+//	    System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 		NodeList nList  = doc.getElementsByTagName("book");
 		
 		// out put web
@@ -93,10 +93,14 @@ public class bookstore extends HttpServlet {
 		out.println("<tr>");
 			out.println("<th>id_book</th>");
 			out.println("<th>name</th>");
-			out.println("<th>publisher</th>");
-			out.println("<th>book_number</th>");
-			out.println("<th>discovery</th>");
-			out.println("<th>total_book</th>");
+			out.println("<th>version</th>");
+			out.println("<th>type</th>");
+			out.println("<th>price</th>");
+			out.println("<th>days</th>");
+			out.println("<th>charge</th>");
+			out.println("<th>total</th>");
+			out.println("<th></th>");
+			out.println("<th></th>");
 		out.println("</tr>");
 		System.out.print(nList.getLength());
 		for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -104,14 +108,18 @@ public class bookstore extends HttpServlet {
 			System.out.println("\nCurrent Element :" + nNode.getNodeName());
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) nNode;
-				
 				out.println("<tr>");
-				out.println("<td>"+eElement.getElementsByTagName("id").item(0).getTextContent()+"</td>");
-				out.println("<td>"+eElement.getElementsByTagName("name").item(0).getTextContent()+"</td>");
-				out.println("<td>"+eElement.getElementsByTagName("type").item(0).getTextContent()+"</td>");
-				String id = eElement.getElementsByTagName("id").item(0).getTextContent();
-				out.println("<td><a href=\"update?id="+id+"\">แก้ไข</a></td>");
-				out.println("<td><a href=\"delete?id="+id+"\">ลบ</a></td>");
+					out.println("<td>"+eElement.getElementsByTagName("id").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("name").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("version").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("type").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("price").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("days").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("charge").item(0).getTextContent()+"</td>");
+					out.println("<td>"+eElement.getElementsByTagName("total").item(0).getTextContent()+"</td>");
+					String id = eElement.getElementsByTagName("id").item(0).getTextContent();
+					out.println("<td><a href=\"update?id="+id+"\">แก้ไข</a></td>");
+					out.println("<td><a href=\"delete?id="+id+"\">ลบ</a></td>");
 				out.println("</tr>");
 			}
 		}
@@ -131,7 +139,7 @@ public class bookstore extends HttpServlet {
 	
 	public URI getBaseURI() {
 //		bookstore/findname/xxxx
-		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL/rest/").build();
+		return UriBuilder.fromUri( "http://localhost:8080/SWE-343-RestFULL-2/rest/").build();
 		}
 
 }

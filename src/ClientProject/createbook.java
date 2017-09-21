@@ -48,14 +48,22 @@ public class createbook extends HttpServlet {
 		// out put web
     	 	response.setContentType( "text/html; charset=UTF-8" );
     	 	out.print(b.header());
-
     	 	
 		out.println("<form action=\"save\">");
 		out.println("name : <input type=\"text\" name=\"name\" value=\"\"><br>");
 		out.println("version: <input type=\"text\" name=\"version\" value=\"\"><br>");
+		out.println("<select name=\"type\">\n" + 
+				"  			<option value=\"การ์ตูน\">การ์ตูน</option>\n" + 
+				" 		 	<option value=\"นิตยสาร\">นิตยสาร </option>\n" + 
+				" 		 	<option value=\"วารสาร\">วารสาร</option>\n" + 
+				" 		 	<option value=\"นวนิยาย\">นวนิยาย</option>\n" + 
+				" 		 	<option value=\"บันเทิงคดี\">บันเทิงคดี</option>\n" + 
+				" 		 	<option value=\"สารคดี\">สารคดี</option>\n" + 
+				"\n" + 
+				" 		</select><br>");
 		out.println("price : <input type=\"text\" name=\"price\" value=\"\"><br>");
 		out.println("charge : <input type=\"text\" name=\"charge\" value=\"\"><br>");
-		out.println("days : <input type=\"password\" name=\"days\" value=\"\"><br>");
+		out.println("days : <input type=\"text\" name=\"days\" value=\"\"><br>");
 		out.println("total : <input type=\"text\" name=\"total\" value=\"\"><br>");
 		out.println("<input class=\"btn btn-success\" type=\"submit\" value=\"สร้าง\">");
 		out.println("</form>");
